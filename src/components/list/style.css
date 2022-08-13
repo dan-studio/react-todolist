@@ -1,0 +1,9 @@
+.progress{
+  display: flex;
+}
+.done{
+  display: flex;
+}
+.status{
+  color: #333;
+}

@@ -1,0 +1,32 @@
+.todos{
+  height: 200px;
+  width: 300px;
+  background-color: rgba(18, 183, 248, 0.13);
+  border-radius: 15px;
+  position: relative;
+  margin: 20px auto;
+}
+.todoTitle{
+  margin: 20px 0 0 0;
+}
+.todoContents{
+  margin:20px;
+  word-break: break-all;
+}
+.todoButtons{
+  position: absolute;
+  bottom: 0px;
+  width:300px;
+  margin: auto;
+}
+.todoButton{
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  transition: .5s;
+}
+.todoButton:hover{
+  color: white;
+  background-color: #00a6ff;
+}
