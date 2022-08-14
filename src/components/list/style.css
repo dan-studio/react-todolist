@@ -1,8 +1,10 @@
 .progress{
   display: flex;
+  flex-wrap: wrap;
 }
 .done{
   display: flex;
+  flex-wrap: wrap;
 }
 .status{
   color: #333;

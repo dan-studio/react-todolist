@@ -1,13 +1,17 @@
+.container{
+  margin: auto;
+}
 .todos{
   height: 200px;
   width: 300px;
   background-color: rgba(18, 183, 248, 0.13);
   border-radius: 15px;
   position: relative;
-  margin: 20px auto;
+  margin: 20px;
 }
 .todoTitle{
   margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
 }
 .todoContents{
   margin:20px;

@@ -1,22 +1,20 @@
-import React from 'react';
-import Todo from '../todo/Todo';
-import './style.css'
+import React from "react";
+import Done from "./Done";
+import Working from "./Working";
+import "./style.css";
 
-const List = ({todos}) => {
+const List = ({ todos, remove }) => {
+  //component별로 진행중, 진행완료 나눈 후 if문을 사용해서 넣는다.
+  // progressList -> todo components 호출 (false)
+  // doneList -> todo components 호출 (true)
+ 
+  
   return (
-    <div className='lists'>
-    <h2 className='status'>Work in progress . .  🫡</h2>
-    <div className='progress'>
-      {todos.map((todo)=>(
-        <Todo 
-          todo={todo}
-          key={todo.id}/>
-      ))}
-    </div>
-    <h2 className='status'>Done !  😎</h2>
-    <div className='done'>
-      
-    </div>
+    <div className="lists">
+      <h2 className="status">Work in progress . . 🫡</h2>
+      <Working todos={todos} remove={remove}/>
+      <h2 className="status">Done ! 😎</h2>
+      <Done todos={todos} remove={remove}/>
     </div>
   );
 };

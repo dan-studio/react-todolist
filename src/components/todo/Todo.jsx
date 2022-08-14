@@ -1,15 +1,17 @@
 import React from 'react';
 import './style.css';
-const Todo = ({todo}) => {
-  const {id, title, content, checked} = todo;
+const Todo = ({todo, remove}) => {
+  const {id, title, body, isDone} = todo;
   return (
+    <div className='container'>
     <div className='todos'>
-      <h2 className='todoTitle'>{title}</h2>
-      <h4 className='todoContents'>{content}</h4>
+      <h3 className='todoTitle'>{title}</h3>
+      <h4 className='todoContents'>{body}</h4>
       <div className='todoButtons'>
       <button className='todoButton'>Nailed it! ✅</button>
-      <button className='todoButton'>remove ❌</button>
+      <button className='todoButton' onClick={() => remove(id)}>remove ❌</button>
       </div>
+    </div>
     </div>
   );
 };
