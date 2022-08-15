@@ -1,3 +1,4 @@
+![](https://velog.velcdn.com/images/danchoi/post/336278ef-a850-4278-84af-478994569044/image.gif)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
