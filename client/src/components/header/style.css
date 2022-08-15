@@ -1,0 +1,15 @@
+.header{
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+.header a,p{
+  text-decoration: none;
+  margin: auto;
+  font-size: 30px;
+  transition: .8s;
+}
+.header a:hover{
+  color: #333;
+  font-size: 35px;
+}
