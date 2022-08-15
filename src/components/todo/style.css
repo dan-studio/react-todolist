@@ -9,6 +9,14 @@
   position: relative;
   margin: 20px;
 }
+.done .todos{
+  height: 200px;
+  width: 300px;
+  background-color: rgba(248, 102, 18, 0.13);
+  border-radius: 15px;
+  position: relative;
+  margin: 20px;
+}
 .todoTitle{
   margin: 20px 0 0 0;
   padding: 10px 0 0 0;

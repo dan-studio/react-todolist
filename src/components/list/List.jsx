@@ -3,7 +3,7 @@ import Done from "./Done";
 import Working from "./Working";
 import "./style.css";
 
-const List = ({ todos, remove }) => {
+const List = ({todos, remove, onToggle}) => {
   //component별로 진행중, 진행완료 나눈 후 if문을 사용해서 넣는다.
   // progressList -> todo components 호출 (false)
   // doneList -> todo components 호출 (true)
@@ -12,9 +12,9 @@ const List = ({ todos, remove }) => {
   return (
     <div className="lists">
       <h2 className="status">Work in progress . . 🫡</h2>
-      <Working todos={todos} remove={remove}/>
+      <Working todos={todos} remove={remove} onToggle={onToggle}/>
       <h2 className="status">Done ! 😎</h2>
-      <Done todos={todos} remove={remove}/>
+      <Done todos={todos} remove={remove} onToggle={onToggle}/>
     </div>
   );
 };

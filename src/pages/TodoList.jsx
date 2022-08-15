@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
+import Layout from '../components/layout/Layout';
+import Header from '../components/header/Header';
 
-export default class TodoList extends Component {
-  render() {
-    return (
-      <div>TodoList</div>
-    )
-  }
-}
+const TodoList = () => {
+  return (
+    <div>
+      <Header/>
+      <Layout/>
+    </div>
+  );
+};
+
+export default TodoList;

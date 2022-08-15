@@ -1,56 +1,74 @@
-import React, {useState, useRef} from 'react';
-import Header from '../header/Header';
-import Form from '../form/Form';
-import List from '../list/List';
-import './style.css'
+import React, { useState } from "react";
+import Form from "../form/Form";
+import List from "../list/List";
+import "./style.css";
 const Layout = () => {
+  const [input, setInput] = useState({
+    title: "",
+    body: "",
+  });
+  const { title, body } = input;
+
+  const onChangeHandler = (e) => {
+    const { value, name } = e.target;
+    setInput({
+      ...input,
+      [name]: value,
+    });
+  };
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    if(!input.title||!input.body) return;
+    const num = todos.length;
+    const todo = {
+      id: num + 1,
+      title,
+      body,
+      isDone: false,
+    };
+    //배열 항목 추가하기
+    setTodos([...todos, todo]);
+    // setTodos(todos.concat(todo)) concat() 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환합니다.
+    setInput({
+      title: "",
+      body: "",
+    });
+  };
   const [todos, setTodos] = useState([
     {
       id: 1,
-      title: 'study React',
-      body: 'finish todo list',
-      isDone: false
+      title: "study React",
+      body: "Finish todo list",
+      isDone: false,
     },
     {
       id: 2,
-      title: 'go to gym',
-      body: 'leg day',
-      isDone: false
+      title: "wake up Early",
+      body: "to study",
+      isDone: true,
     },
-    {
-      id: 3,
-      title: 'commit on github',
-      body: 'every commit each day',
-      isDone: true
-    },
-    {
-      id: 4,
-      title: 'enjoy weekends',
-      body: 'yeaaaay',
-      isDone: true
-    }
-  ])
-  const nextId = useRef(0)//함수형 component에서 ref를 쉽게 사용하기 위해 쓰이는 hook이다.
-  //ref: 리액트 프로젝트 내부에서 특정 DOM에 이름을 다는 방법으로, 전역적으로 작동하지 않고 컴포넌트 내부에서만 작동함
-  const handleSubmit = (title, body) =>{
-    const todo = {
-      id: nextId.current,
-      title,
-      body,
-      isDone: false
-    }
-    setTodos(todos.concat(todo))
-    nextId.current +=1;
-  }
+  ]);
   const remove = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id))
-  }
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+  const onToggle = (id) => {
+    //todo.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = todo.id가 id인 것을 제거함
+    setTodos(todos.map(
+      todo => todo.id === id 
+      ? {...todo, isDone: !todo.isDone} : todo
+    ));
+  };
 
   return (
-    <div className='layOut'>
-      <Header/>
-      <Form onSubmit = {handleSubmit}/>
-      <List todos={todos} remove={remove} todo={setTodos}/>
+    <div className="layOut">
+      <Form
+        title={title}
+        body={body}
+        onChangeHandler={onChangeHandler}
+        onSubmitHandler={onSubmitHandler}
+      />
+      <List todos={todos} remove={remove} onToggle={onToggle} />
     </div>
   );
 };
