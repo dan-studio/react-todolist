@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Form from "../form/Form";
 import List from "../list/List";
-import "./style.css";
+
 const Layout = () => {
   const [input, setInput] = useState({
     title: "",
     body: "",
   });
+
   const { title, body } = input;
 
   const onChangeHandler = (e) => {
@@ -16,9 +18,10 @@ const Layout = () => {
       [name]: value,
     });
   };
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if(!input.title||!input.body) return;
+    if (!input.title || !input.body) return;
     const num = todos.length;
     const todo = {
       id: num + 1,
@@ -34,6 +37,7 @@ const Layout = () => {
       body: "",
     });
   };
+
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -48,20 +52,23 @@ const Layout = () => {
       isDone: true,
     },
   ]);
+
   const remove = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
+
   const onToggle = (id) => {
     //todo.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     // = todo.id가 id인 것을 제거함
-    setTodos(todos.map(
-      todo => todo.id === id 
-      ? {...todo, isDone: !todo.isDone} : todo
-    ));
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
   };
 
   return (
-    <div className="layOut">
+    <LayoutDiv>
       <Form
         title={title}
         body={body}
@@ -69,8 +76,14 @@ const Layout = () => {
         onSubmitHandler={onSubmitHandler}
       />
       <List todos={todos} remove={remove} onToggle={onToggle} />
-    </div>
+    </LayoutDiv>
   );
 };
+
+const LayoutDiv = styled.div`
+  max-width: 1200px;
+  min-width: 800px;
+  margin: auto;
+`;
 
 export default Layout;
