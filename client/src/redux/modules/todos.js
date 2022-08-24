@@ -42,16 +42,16 @@ export function deleteTodo(todo_id) {
 // reducer
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-      case "todo/CREATE": {
+      case CREATE: {
           const new_todo_list = [...state.list, action.todo];
           return { ...state, list: new_todo_list };
       }
-      case "todo/READ": {
+      case READ: {
           const target_todo = state.list.filter((todo) => todo.id === action.todo_id)[0];
 
           return { ...state, current: target_todo };
       }
-      case "todo/UPDATE": {
+      case UPDATE: {
           const new_todo_list = state.list.map((todo) => {
               if (todo.id === action.todo_id) {
                   return { ...todo, isDone: !todo.isDone };
@@ -62,7 +62,7 @@ export default function reducer(state = initialState, action = {}) {
           });
           return { ...state, list: new_todo_list };
       }
-      case "todo/DELETE": {
+      case DELETE: {
           const new_todo_list = state.list.filter((todo) => {
               return todo.id !== action.todo_id;
           });
