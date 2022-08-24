@@ -4,7 +4,7 @@ import icon from "./logo192.png";
 const Header = () => {
   return (
     <HeaderDiv>
-      <HeaderA href="/">My Todo List</HeaderA>
+      <HeaderA href="/">Dan Studio!</HeaderA>
       <img
         src="https://velog.velcdn.com/images/danchoi/profile/56f31c7c-29d1-4496-bc0c-6f084d8c2fcb/image.png"
         alt="logo"
@@ -32,6 +32,7 @@ const HeaderDiv = styled.div`
   justify-content: center;
 `;
 const HeaderA = styled.a`
+  font: italic bold 1px helvetica;
   text-decoration: none;
   margin: auto;
   font-size: 30px;

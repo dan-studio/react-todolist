@@ -1,6 +1,7 @@
 *{
-  font-family: 'DynaPuff', cursive;
-  color:#00A1CD
+  font-family: 'helvetica', cursive;
+  color:#00A1CD;
+  font-weight: bold;
 }
 .App {
   text-align: center;

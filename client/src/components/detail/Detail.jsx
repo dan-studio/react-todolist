@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { readTodo } from '../../redux/modules/todos';
@@ -16,9 +17,21 @@ const Detail = () => {
       <h3>id: {id}</h3>
       <h1>{todo.title}</h1>
       <h2>{todo.body}</h2>
-      <button onClick={()=>{navigate(-1)}}>go back</button>
+      <GoBackButton onClick={()=>{navigate(-1)}}>go back  ⏪</GoBackButton>
     </div>
   );
 };
+const GoBackButton = styled.button`
+  margin: 10px;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  transition: 0.5s;
+  &:hover {
+    color: white;
+    background-color: #00a6ff;
+  }
+`;
 
 export default Detail;
