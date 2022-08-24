@@ -1,13 +1,18 @@
-import './App.css';
-import TodoList from './pages/TodoList';
+import "./App.css";
+import React from "react";
+import TodoList from "./pages/TodoList";
+import { Route, Routes } from "react-router-dom";
+import Detail from "./components/detail/Detail";
 
-function App() {
-  
+const App = () => {
   return (
     <div className="App">
-      <TodoList/>
+      <Routes>
+        <Route path="/" element={<TodoList />} />
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

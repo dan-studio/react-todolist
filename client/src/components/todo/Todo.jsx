@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-const Todo = ({ todo, remove, onToggle }) => {
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateTodo, deleteTodo } from "../../redux/modules/todos";
+const Todo = ({ todo }) => {
   const { id, title, body } = todo;
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   return (
     <Container>
       {todo.isDone === false ? (
@@ -9,8 +14,13 @@ const Todo = ({ todo, remove, onToggle }) => {
           <Todotitle>{title}</Todotitle>
           <Todobody>{body}</Todobody>
           <Buttons>
-            <Todobutton onClick={() => onToggle(id)}>Nailed it! ✅</Todobutton>
-            <Todobutton onClick={() => remove(id)}>remove ❌</Todobutton>
+            <Todobutton onClick={() => navigate('/detail/'+id)}>Detail</Todobutton>
+            <Todobutton onClick={()=>{
+              dispatch(updateTodo(id))
+            }}>Nailed it! <span role="img" aria-label="Check Mark">✅</span></Todobutton>
+            <Todobutton onClick={()=>{
+              dispatch(deleteTodo(id))
+            }}>remove <span role="img" aria-label="Cross Mark">❌</span></Todobutton>
           </Buttons>
         </Todos>
       ) : (
@@ -18,8 +28,13 @@ const Todo = ({ todo, remove, onToggle }) => {
           <Todotitle>{title}</Todotitle>
           <Todobody>{body}</Todobody>
           <Buttons>
-            <Todobutton onClick={() => onToggle(id)}>Cancel ⛔️</Todobutton>
-            <Todobutton onClick={() => remove(id)}>remove ❌</Todobutton>
+            <Todobutton onClick={() => navigate('/detail/'+id)}>Detail</Todobutton>
+            <Todobutton onClick={()=>{
+              dispatch(updateTodo(id))
+            }}>Cancel <span role="img" aria-label="Check Mark">⛔️</span></Todobutton>
+            <Todobutton onClick={()=>{
+              dispatch(deleteTodo(id))
+            }}>remove <span role="img" aria-label="Cross Mark">❌</span></Todobutton>
           </Buttons>
         </Todos>
       )}
