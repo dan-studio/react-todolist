@@ -5,8 +5,18 @@ const Header = () => {
   return (
     <HeaderDiv>
       <HeaderA href="/">My Todo List</HeaderA>
+      <img
+        src="https://velog.velcdn.com/images/danchoi/profile/56f31c7c-29d1-4496-bc0c-6f084d8c2fcb/image.png"
+        alt="logo"
+        style={{ width: "100px" }}
+      />
+      <img
+        src="https://dan-studio.github.io/assets/logo.ico/android-chrome-192x192.png"
+        alt="logo"
+        style={{ width: "100px" }}
+      />
       <HeaderA>
-        React{" "}
+        React
         <img
           style={{ height: "25px", transform: "translateY(2px)" }}
           src={icon}

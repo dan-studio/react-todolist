@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
-
-const Form = ({ title, body, onChangeHandler, onSubmitHandler }) => {
+import { useDispatch } from "react-redux";
+import { createTodo } from "../../redux/modules/todos";
+const Form = () => {
+  const titleRefree = useRef(null);
+  const bodyRefree = useRef(null);
+  const dispatch = useDispatch();
   return (
     <FormDiv>
       <form className="todoInput">
         <label>Title :</label>
-        <Input
-          name="title"
-          type="text"
-          value={title}
-          onChange={onChangeHandler}
-        />
+        <Input ref={titleRefree} name="title" type="text" />
         <label>Contents :</label>
-        <Input
-          name="body"
-          type="text"
-          value={body}
-          onChange={onChangeHandler}
-        />
-        <Submit id="submit" type="submit" onClick={onSubmitHandler}>
+        <Input ref={bodyRefree} name="body" type="text" />
+        <Submit
+          id="submit"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault()
+            if(!titleRefree.current.value||!bodyRefree.current.value) return
+            dispatch(
+              createTodo({
+                id: Date.now(),
+                title: titleRefree.current.value,
+                body: bodyRefree.current.value,
+                isDone: false,
+              })
+            );
+            titleRefree.current.value=''
+            bodyRefree.current.value=''
+          }}
+        >
           Submit
         </Submit>
       </form>
@@ -47,16 +58,16 @@ const Input = styled.input`
     width: 230px;
   }
 `;
-  const Submit = styled.button`
+const Submit = styled.button`
   background-color: transparent;
-  border-radius:  15px;
+  border-radius: 15px;
   border: none;
   font-size: 20px;
-  transition: .5s;
-  &:hover{
+  transition: 0.5s;
+  &:hover {
     color: white;
     background-color: #00a6ff;
   }
-  `
+`;
 
 export default Form;

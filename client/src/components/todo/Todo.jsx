@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateTodo, deleteTodo } from "../../redux/modules/todos";
 const Todo = ({ todo }) => {
-  const { id, title, body } = todo;
+  const { id, title, body, isDone } = todo;
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  console.log(id)
   return (
     <Container>
-      {todo.isDone === false ? (
+      {!isDone? (
         <Todos background="rgba(18, 183, 248, 0.13)">
           <Todotitle>{title}</Todotitle>
           <Todobody>{body}</Todobody>
@@ -42,11 +43,13 @@ const Todo = ({ todo }) => {
   );
 };
 const Container = styled.div`
-  margin: auto;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 `;
 const Todos = styled.div`
   height: 200px;
-  width: 300px;
+  width: 280px;
   background-color: ${(props)=>props.background};
   border-radius: 15px;
   position: relative;

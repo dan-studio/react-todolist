@@ -24,7 +24,7 @@ const List = ({ todos, remove, onToggle }) => {
         {todosList
           .filter((todo) => todo.isDone === true)
           .map((todo) => (
-            <Todo key={todo.id}/>
+            <Todo todo={todo} key={todo.id}/>
           ))}
       </TodoItems>
     </div>
