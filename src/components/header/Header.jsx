@@ -8,12 +8,12 @@ const Header = () => {
       <img
         src="https://velog.velcdn.com/images/danchoi/profile/56f31c7c-29d1-4496-bc0c-6f084d8c2fcb/image.png"
         alt="logo"
-        style={{ width: "100px" }}
+        style={{ width: "50px" }}
       />
       <img
         src="https://dan-studio.github.io/assets/logo.ico/android-chrome-192x192.png"
         alt="logo"
-        style={{ width: "100px" }}
+        style={{ width: "50px" }}
       />
       <HeaderA>
         React

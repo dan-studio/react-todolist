@@ -17,7 +17,7 @@ const Detail = () => {
       <h3>id: {id}</h3>
       <h1>{todo.title}</h1>
       <h2>{todo.body}</h2>
-      <GoBackButton onClick={()=>{navigate(-1)}}>go back  ⏪</GoBackButton>
+      <GoBackButton onClick={()=>{navigate(-1)}}>go back  <span role="img" aria-label="goback">⏪</span></GoBackButton>
     </div>
   );
 };
